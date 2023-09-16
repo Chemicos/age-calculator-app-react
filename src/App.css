@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&family=Poppins:ital,wght@0,700;1,400;1,800&family=Roboto:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --bg-neutral-white: hsl(0, 0%, 100%);
+  --bg-neutral-off_white: hsl(0, 0%, 94%);
+  --bg-neutral-light_grey:  hsl(0, 0%, 86%);
+  --bg-neutral-smokey_grey:  hsl(0, 1%, 44%);
+  --bg-neutral-off_black: hsl(0, 0%, 8%);
+
+  --primary-color-purple: hsl(259, 100%, 65%);
+  --primary-color-light_red: hsl(0, 100%, 67%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--bg-neutral-light_grey);
+}
+.card-container {
+  width: 600px;
+  border-radius: 1rem 1rem 10rem 1rem;
+  background-color: var(--bg-neutral-white);
+  padding: 2rem;
+  max-width: 90vw;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.input-container {
+  display: flex;
+  gap: 1.5rem;
+}
+.input-label-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.input-label-container label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.2rem;
+}
+.input-label-container input {
+  width: 8.125rem;
+  padding: 0.75rem 1rem 0.75rem 1rem; 
+  font-size: 1.5rem;
+  color: var(--bg-neutral-off_black);
+  border-radius: 0.5rem;
+  outline: none;
+  letter-spacing: 0.1rem;
+  
+}
+.error {
+  color: var(--primary-color-light_red);
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 0.25rem;
+  letter-spacing: 0.1rem;
+  font-size: 0.75rem;
+}
+.error.generic {
+  margin-top: 0.5rem;
+}
+.divider-container {
+  display: flex;
+  align-items: center;
+  margin: 0.75rem 0 0.75rem 0;
+}
+.divider {
+  height: 2px;
+  background-color: var(--bg-neutral-off_white);
+  width: 86%;
 }
 
-.App-link {
-  color: #61dafb;
+.btn {
+  background-color: var(--primary-color-purple);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn:hover {
+  background-color: var(--bg-neutral-off_black);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.output-container h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  font-style: italic;
+}
+.output-container .highlighted {
+  color: var(--primary-color-purple);
+  letter-spacing: 0.25rem;
+}
+
+@media (max-width: 620px) {
+  .divider-container {
+    display: block;
+    position: relative;
+    margin: 4.5rem 0 4.5rem 0;
   }
-  to {
-    transform: rotate(360deg);
+  .divider {
+    width: 100%;
+  }
+  .btn {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .input-container {
+    gap: 0.85rem;
+  }
+  .input-label-container input {
+    font-size: 1rem;
+  }
+
+  .input-label-container {
+    flex: 1;
+  }
+  .output-container h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .input-container {
+    flex-direction: column;
+  }
+  .input-label-container input {
+    width: 100%;
+  }
+  .card-container {
+    border-radius: 1rem 1rem 8rem 1rem;
   }
 }
